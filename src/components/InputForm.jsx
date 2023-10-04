@@ -14,7 +14,12 @@ const InputForm = ({ handleOnSubmit }) => {
             name="user"
           ></input>
           <div className="mt-2r">
-            <Button className="item-width" variant="secondary" size="lg">
+            <Button
+              type="submit"
+              className="item-width"
+              variant="secondary"
+              size="lg"
+            >
               GO
             </Button>
           </div>

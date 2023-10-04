@@ -17,10 +17,6 @@ function App() {
       .then(([fetchUser, fetchRepo]) => {
         return Promise.all([fetchUser.json(), fetchRepo.json()]);
       })
-      .catch(() => {
-        return alert("Enter correct username");
-      })
-
       .then((dataJSON) => {
         setUserData({
           profilePicture: dataJSON[0].avatar_url,
