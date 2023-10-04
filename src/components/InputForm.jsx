@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 
 const InputForm = ({ handleOnSubmit }) => {
   return (
-    <div className="container mt">
+    <div>
       <span>Github username:</span>
       <form onSubmit={handleOnSubmit}>
         <input type="text" name="user"></input>
