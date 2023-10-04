@@ -17,6 +17,10 @@ function App() {
       .then(([fetchUser, fetchRepo]) => {
         return Promise.all([fetchUser.json(), fetchRepo.json()]);
       })
+      .catch(() => {
+        return alert("Enter correct username");
+      })
+
       .then((dataJSON) => {
         setUserData({
           profilePicture: dataJSON[0].avatar_url,
@@ -26,7 +30,9 @@ function App() {
           repos: dataJSON[1].map((repo) => ({ name: repo.name })),
         });
       })
-      .catch((error) => console.error(error));
+      .catch(() => {
+        return alert("Enter correct username");
+      });
   };
 
   return (
