@@ -3,16 +3,23 @@ import Button from "react-bootstrap/Button";
 
 const InputForm = ({ handleOnSubmit }) => {
   return (
-    <div className="container mt">
-      <span>Github username:</span>
-      <form onSubmit={handleOnSubmit}>
-        <input type="text" name="user"></input>
-        <div>
-          <Button variant="secondary" size="lg">
-            GO
-          </Button>
-        </div>
-      </form>
+    <div className="container mt-2r">
+      <div>GitHub username:</div>
+      <div>
+        <form onSubmit={handleOnSubmit}>
+          <input
+            className="item-width"
+            placeholder="e.g.facebook"
+            type="text"
+            name="user"
+          ></input>
+          <div className="mt-2r">
+            <Button className="item-width" variant="secondary" size="lg">
+              GO
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

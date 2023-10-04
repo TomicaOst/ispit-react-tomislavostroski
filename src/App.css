@@ -1,14 +1,9 @@
-.mt {
+.mt-2r {
   margin-top: 2rem;
 }
-.ml {
-  margin-left: 2rem;
+.mt-1p5r {
+  margin-top: 1.5rem;
 }
-
-.logoName {
-  display: flex;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -16,12 +11,18 @@
   justify-content: space-between;
 }
 
-.item-container {
+.container-logo-name {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 2.1rem;
 }
-.div-start {
+
+.container-items {
   display: flex;
-  justify-content: end !important;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+}
+.item-width {
+  width: 500px;
 }

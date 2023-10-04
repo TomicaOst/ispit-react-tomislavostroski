@@ -10,22 +10,28 @@ function App() {
     event.preventDefault();
     const userName = event.target.user.value;
 
-    fetch(`https://api.github.com/users/${userName}`)
-      .then((response) => response.json())
-      .then((data) => {
-        fetch(`https://api.github.com/users/${userName}/repos`)
-          .then((response) => response.json())
-          .then((repository) => {
-            setUserData({
-              profilePicture: data.avatar_url,
-              name: data.name,
-              location: data.location,
-              bio: data.bio,
-              repos: repository.map((repo) => ({
-                name: repo.name,
-              })),
-            });
-          });
+    Promise.all([
+      fetch(`https://api.github.com/users/${userName}`),
+      fetch(`https://api.github.com/users/${userName}/repos`),
+    ])
+      .then(([fetchUser, fetchRepo]) => {
+        return Promise.all([fetchUser.json(), fetchRepo.json()]);
+      })
+      .catch(() => {
+        return alert("Enter correct username");
+      })
+
+      .then((dataJSON) => {
+        setUserData({
+          profilePicture: dataJSON[0].avatar_url,
+          name: dataJSON[0].name,
+          location: dataJSON[0].location,
+          bio: dataJSON[0].bio,
+          repos: dataJSON[1].map((repo) => ({ name: repo.name })),
+        });
+      })
+      .catch(() => {
+        return alert("Enter correct username");
       });
   };
 
